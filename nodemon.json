@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ignore": ["client/*"],
+  "ext": "js,json,css,html",
+  "exec": "node src/index.js", 
+  "delay": "750" 
+}
