@@ -47,10 +47,10 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Routes las rutas del proyecto
-app.get("*", (_req, res) => {
+app.get("/", (_req, res) => {
   // Ruta de la pagina Principal Index
   // res.render('index');
-  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+  res.sendFile(path.resolve("src", "public", "index.html"));
 });
 // Aqui usamos las rutas ya sea de index kart o users
 app.use("/api/karts", kartRoutes);
