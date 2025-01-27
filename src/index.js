@@ -34,11 +34,19 @@ app.use(
     credentials: true,
     origin: [
       process.env.FRONTEND_URL || "http://localhost:5173",
-      "http://localhost:5173",
-      "https://lck-front.onrender.com",
+      //"http://localhost:5173",
+      //"https://lck-front.onrender.com",
     ],
   })
 );
+
+// Configuración al enviar la cookie
+res.cookie('token', token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production', // Solo seguro en producción
+  sameSite: 'strict', // Evita envíos de cookies desde sitios no relacionados
+});
+
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
