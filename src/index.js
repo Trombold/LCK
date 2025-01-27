@@ -32,7 +32,7 @@ app.set("port", process.env.PORT || 5000); // se configura el puerto a usar si o
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://lck-front.onrender.com" || "http://localhost:5173",
   })
 );
 app.use(express.json());
@@ -47,10 +47,10 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Routes las rutas del proyecto
-app.get("/", (_req, res) => {
+app.get("*", (_req, res) => {
   // Ruta de la pagina Principal Index
   // res.render('index');
-  res.sendFile(path.resolve("src", "public", "index.html"));
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 // Aqui usamos las rutas ya sea de index kart o users
 app.use("/api/karts", kartRoutes);
