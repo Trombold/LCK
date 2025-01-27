@@ -39,14 +39,6 @@ app.use(
     ],
   })
 );
-
-// Configuración al enviar la cookie
-res.cookie('token', token, {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === 'production', // Solo seguro en producción
-  sameSite: 'strict', // Evita envíos de cookies desde sitios no relacionados
-});
-
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
