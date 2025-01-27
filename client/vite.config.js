@@ -8,4 +8,8 @@ export default defineConfig({
     outDir: '../src/public',
     emptyOutDir: true
   },
+  server: {
+    port: process.env.PORT || 5173,
+    host: true,
+  },
 })
